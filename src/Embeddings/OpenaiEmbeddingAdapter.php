@@ -16,11 +16,11 @@ namespace ModelflowAi\OpenaiAdapter\Embeddings;
 use ModelflowAi\Core\Embeddings\EmbeddingAdapterInterface;
 use OpenAI\Client;
 
-class OpenaiEmbeddingAdapter implements EmbeddingAdapterInterface
+final readonly class OpenaiEmbeddingAdapter implements EmbeddingAdapterInterface
 {
     public function __construct(
-        private readonly Client $client,
-        private readonly string $model = 'text-embedding-ada-002',
+        private Client $client,
+        private string $model = 'text-embedding-ada-002',
     ) {
     }
 

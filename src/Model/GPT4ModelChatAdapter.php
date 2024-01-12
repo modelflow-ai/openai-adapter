@@ -23,11 +23,11 @@ use ModelflowAi\PromptTemplate\Chat\AIChatMessageRoleEnum;
 use OpenAI\Client;
 use Webmozart\Assert\Assert;
 
-class GPT4ModelChatAdapter implements AIModelAdapterInterface
+final readonly class GPT4ModelChatAdapter implements AIModelAdapterInterface
 {
     public function __construct(
-        private readonly Client $client,
-        private readonly string $model = 'gpt-4',
+        private Client $client,
+        private string $model = 'gpt-4',
     ) {
     }
 
