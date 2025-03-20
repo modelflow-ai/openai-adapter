@@ -99,6 +99,9 @@ final class OpenaiChatAdapterTest extends TestCase
                 ['role' => 'assistant', 'content' => 'Assistant message'],
             ],
             'seed' => 123,
+            'parameters' => [
+                'top_p' => 0.1
+            ],
             'temperature' => 0.5,
         ])->willReturn(CreateResponse::from(
             CreateResponseFixture::ATTRIBUTES,
@@ -124,6 +127,7 @@ final class OpenaiChatAdapterTest extends TestCase
         ), new CriteriaCollection(), [], [], [
             'seed' => 123,
             'temperature' => 0.5,
+            'top_p' => 0.1,
         ], fn () => null);
 
         $adapter = new OpenaiChatAdapter($client->reveal());

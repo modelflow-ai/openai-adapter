@@ -44,6 +44,7 @@ final readonly class OpenaiChatAdapter implements AIChatAdapterInterface
         Assert::inArray($format, [null, 'json'], \sprintf('Invalid format "%s" given.', $format));
 
         $parameters = [
+            ...$request->getOption('parameters', []),
             'model' => $this->model,
             'messages' => $request->getMessages()->toArray(),
         ];
